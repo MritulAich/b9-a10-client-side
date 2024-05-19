@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -29,12 +29,9 @@ const Navbar = () => {
           </ul>
         </div>
   
-        <div className="navbar-end lg:flex lg:flex-row md:flex-row flex-col">
-          {/* {
-            user && <span>{user.email}</span>
-          } */}
-          <button className="btn m-4" >Log Out</button>
-          {/* <Link to='/login' className="btn">Login</Link> */}
+        <div className="navbar-end lg:flex lg:flex-row md:flex-row flex-col gap-4">
+          <Link to='/register' className="btn">Register</Link>
+          <Link to='/login' className="btn">Login</Link>
         </div>
       </div>
     );
