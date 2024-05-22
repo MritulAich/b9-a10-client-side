@@ -1,15 +1,47 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import AddedSpot from "./AddedSpot";
+import Swal from "sweetalert2";
 
 const MyList = () => {
 
     const loadSpots = useLoaderData();
     const [spots, setSpots] = useState(loadSpots);
+    
+    const handleDelete = _id =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/spot/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your added spot has been deleted.",
+                                icon: "success"
+                            })
+                            const remaining = spots.filter(cof => cof._id !== _id);
+                            setSpots(remaining)
+                        }
+                    })
+            }
+        });
+    }
 
     return (
-        <div className='m-20'>
-            <h1 className='text-6xl text-center my-20'></h1>
+        <div className='m-5 mt-10'>
+            <h1 className='text-6xl text-center'></h1>
 
             <div>
                 <table className="table ">
@@ -31,10 +63,10 @@ const MyList = () => {
                             <td>{spot.country}</td>
                             <td>{spot.cost}</td>
                             <td><div className="btn btn-accent">Update</div></td>
-                            <td><div className="btn btn-neutral">Delete</div></td>
+                            <td><div onClick={()=>handleDelete(spot._id)} className="btn btn-neutral">Delete</div></td>
                         </tr>
                     </tbody> )}
-                    
+
                 </table>
             </div>
         </div>
