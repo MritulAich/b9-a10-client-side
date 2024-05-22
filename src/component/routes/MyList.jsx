@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyList = () => {
 
     const loadSpots = useLoaderData();
     const [spots, setSpots] = useState(loadSpots);
-    
-    const handleDelete = _id =>{
+
+    const handleDelete = _id => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -45,7 +45,7 @@ const MyList = () => {
 
             <div>
                 <table className="table ">
-                <thead>
+                    <thead>
                         <tr className="text-lg">
                             <th>Spot Name</th>
                             <th>Country</th>
@@ -55,17 +55,21 @@ const MyList = () => {
                         </tr>
                     </thead>
 
-                { spots.map(spot => 
-                    <tbody key={spot._id}>
-                        {/* row 1 */}
-                        <tr className="hover">
-                            <th>{spot.spot}</th>
-                            <td>{spot.country}</td>
-                            <td>{spot.cost}</td>
-                            <td><div className="btn btn-accent">Update</div></td>
-                            <td><div onClick={()=>handleDelete(spot._id)} className="btn btn-neutral">Delete</div></td>
-                        </tr>
-                    </tbody> )}
+                    {spots.map(spot =>
+                        <tbody key={spot._id}>
+                            {/* row 1 */}
+                            <tr className="hover">
+                                <th>{spot.spot}</th>
+                                <td>{spot.country}</td>
+                                <td>{spot.cost}</td>
+                                <td>
+                                    <Link to={`/updatePage/${spot._id}`}>
+                                        <div className="btn btn-accent">Update</div>
+                                    </Link>
+                                </td>
+                                <td><div onClick={() => handleDelete(spot._id)} className="btn btn-neutral">Delete</div></td>
+                            </tr>
+                        </tbody>)}
 
                 </table>
             </div>
