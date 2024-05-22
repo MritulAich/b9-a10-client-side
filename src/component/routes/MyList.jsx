@@ -12,17 +12,9 @@ const MyList = () => {
             <h1 className='text-6xl text-center my-20'></h1>
 
             <div>
-                {/* {
-                 spots.map(spot => <AddedSpot
-                 key={spot._id}
-                 spot={spot}
-      `          spots={spots}
-                 setSpots={setSpots}></AddedSpot>)
-                } */}
                 <table className="table ">
-
-                    <thead>
-                        <tr>
+                <thead>
+                        <tr className="text-lg">
                             <th>Spot Name</th>
                             <th>Country</th>
                             <th>Average Cost</th>
@@ -30,31 +22,19 @@ const MyList = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+
+                { spots.map(spot => 
+                    <tbody key={spot._id}>
                         {/* row 1 */}
                         <tr className="hover">
-                            <th>{spots[0].spot}</th>
-                            <td>{spots[0].country}</td>
-                            <td>{spots[0].cost}</td>
+                            <th>{spot.spot}</th>
+                            <td>{spot.country}</td>
+                            <td>{spot.cost}</td>
                             <td><div className="btn btn-accent">Update</div></td>
                             <td><div className="btn btn-neutral">Delete</div></td>
                         </tr>
-                        <tr className="hover">
-                            <th>{spots[1].spot}</th>
-                            <td>{spots[1].country}</td>
-                            <td>{spots[1].cost}</td>
-                            <td><div className="btn btn-accent">Update</div></td>
-                            <td><div className="btn btn-neutral">Delete</div></td>
-                        </tr>
-                        <tr className="hover">
-                            <th>{spots[2].spot}</th>
-                            <td>{spots[2].country}</td>
-                            <td>{spots[2].cost}</td>
-                            <td><div className="btn btn-accent">Update</div></td>
-                            <td><div className="btn btn-neutral">Delete</div></td>
-                        </tr>
-
-                    </tbody>
+                    </tbody> )}
+                    
                 </table>
             </div>
         </div>
