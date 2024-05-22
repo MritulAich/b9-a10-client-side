@@ -1,7 +1,7 @@
 
 const Slider = () => {
     return (
-        <div className="carousel w-full  h-screen">
+        <div className="carousel w-full rounded-lg h-screen">
 
             <div id="slide1" className="carousel-item relative w-full" style={{ backgroundImage: 'url(https://i.ibb.co/bdn9Cy0/hero-area.jpg)'}}>
                 <div className=" bg-opacity-60"></div>
