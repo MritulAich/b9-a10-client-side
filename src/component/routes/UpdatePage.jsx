@@ -48,30 +48,30 @@ const UpdatePage = () => {
                 <div className="flex flex-row gap-6">
                     <div className="space-y-2">
                         <p>Tourists Spot Name</p>
-                        <input type="text" name="spot" placeholder={spot} className="input input-bordered" />
+                        <input type="text" name="spot" defaultValue={spot} className="input input-bordered" />
 
                         <p>New photo</p>
-                        <input type="url" name="photo" placeholder="type url" className="input input-bordered" />
+                        <input type="url" name="photo"  placeholder="type url" className="input input-bordered" />
 
                         <p>Country</p>
-                        <input type="text" name="country" placeholder={country} className="input input-bordered" />
+                        <input type="text" name="country" defaultValue={country} className="input input-bordered" />
                     </div>
                     <div className="space-y-2">
                         <p>Location</p>
-                        <input type="text" name="location" placeholder={location} className="input input-bordered" />
+                        <input type="text" name="location" defaultValue={location} className="input input-bordered" />
 
                         <p>Seasonality</p>
-                        <input type="text" name="seasonality" placeholder={seasonality} className="input input-bordered" />
+                        <input type="text" name="seasonality" defaultValue={seasonality} className="input input-bordered" />
 
                         <p>Time</p>
-                        <input type="text" name="time" placeholder={time} className="input input-bordered" />
+                        <input type="text" name="time" defaultValue={time} className="input input-bordered" />
                     </div>
                     <div className="space-y-2">
                         <p>Cost</p>
                         <input type="number" name="cost" className="input input-bordered" />
 
                         <p>Visitors</p>
-                        <input type="text" name="visitors" placeholder={visitors} className="input input-bordered" />
+                        <input type="text" name="visitors" defaultValue={visitors} className="input input-bordered" />
 
                         <p>Description</p>
                         <input type="text" name="description" className="input input-bordered" />

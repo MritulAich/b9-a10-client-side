@@ -37,7 +37,7 @@ const Footer = () => {
                             <span className="label-text">Send message :</span>
                         </label>
                         <div className="join">
-                            <input type="text" placeholder="" className="input input-bordered join-item" />
+                            <input type="text" defaultValue="" className="input input-bordered join-item" />
                             <button className="btn btn-primary join-item">Submit</button>
                         </div>
                     </fieldset>
