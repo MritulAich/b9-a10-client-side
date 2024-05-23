@@ -15,6 +15,7 @@ import AddTouristsSpot from './component/routes/AddTouristsSpot';
 import MyList from './component/routes/MyList';
 import UpdatePage from './component/routes/UpdatePage';
 import ViewDetails from './component/ViewDetails';
+import AuthProvider from './component/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -23,48 +24,50 @@ const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path:'/',
+        path: '/',
         element: <Home></Home>
       },
       {
-        path:'/login',
+        path: '/login',
         element: <Login></Login>
       },
       {
-        path:'/register',
+        path: '/register',
         element: <Register></Register>
       },
       {
-        path:'/allTouristsSpot',
+        path: '/allTouristsSpot',
         element: <AllTouristsSpot></AllTouristsSpot>
       },
       {
-        path:'/addTouristsSpot',
+        path: '/addTouristsSpot',
         element: <AddTouristsSpot></AddTouristsSpot>
       },
       {
         path: '/viewDetails/:id',
         element: <ViewDetails></ViewDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/spot/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
       },
       {
-        path:'/myList',
+        path: '/myList',
         element: <MyList></MyList>,
-        loader:()=> fetch('http://localhost:5000/spot')
+        loader: () => fetch('http://localhost:5000/spot')
       },
       {
-        path:'/updatePage/:id',
+        path: '/updatePage/:id',
         element: <UpdatePage></UpdatePage>,
-        loader:({params})=> fetch(`http://localhost:5000/spot/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
       },
-      
+
     ]
   },
-  
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
