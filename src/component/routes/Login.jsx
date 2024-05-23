@@ -8,7 +8,7 @@ import app from "../../../firebase.config";
 
 const Login = () => {
 
-    const notify = () => toast.error('Oops! Infos are not matching');
+    const notify = () => toast.error('Sorry! Infos are not matching');
 
     const { signIn, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
     const handleGoogle = () => {
@@ -61,7 +61,7 @@ const Login = () => {
                             <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-blue-600" />
                         </div>
                     </div>
-                    <button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-blue-600 text-gray-50">Sign in</button>
+                    <button className="w-full px-8 py-3 font-semibold rounded-md bg-blue-600 text-gray-50">Sign in</button>
                 </form>
 
                 <div className="flex items-center w-full my-4">
