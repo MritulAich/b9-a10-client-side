@@ -16,6 +16,7 @@ import MyList from './component/routes/MyList';
 import UpdatePage from './component/routes/UpdatePage';
 import ViewDetails from './component/ViewDetails';
 import AuthProvider from './component/AuthProvider';
+import PrivateRoute from './component/routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -41,21 +42,21 @@ const router = createBrowserRouter([
       },
       {
         path: '/addTouristsSpot',
-        element: <AddTouristsSpot></AddTouristsSpot>
+        element: <PrivateRoute> <AddTouristsSpot></AddTouristsSpot></PrivateRoute>
       },
       {
         path: '/viewDetails/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
       },
       {
         path: '/myList',
-        element: <MyList></MyList>,
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/spot')
       },
       {
         path: '/updatePage/:id',
-        element: <UpdatePage></UpdatePage>,
+        element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
       },
 
