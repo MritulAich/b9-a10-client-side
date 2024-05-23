@@ -14,7 +14,7 @@ const TouristsSpots = () => {
     return (
         <div>
             <div className="flex flex-row justify-around mt-20 mb-8">
-                <h2 className="lg:text-3xl md:text-2xl text-xl"></h2>
+                <h2 className="lg:text-3xl md:text-2xl text-2xl">Tourists Spots Section</h2>
             </div>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
@@ -26,7 +26,7 @@ const TouristsSpots = () => {
                             <p className="text-lg">{spot.description.slice(0, 90)} ....more</p>
                             <p className="text-center text-lg font-semibold text-red-400">Average Cost: {spot.cost} BDT</p>
                             <div className="text-center">
-                              <Link to={`/estateDetails/${spot._id}`}><button className="btn btn-primary">View details</button></Link>
+                              <Link to={`/viewDetails/${spot._id}`}><button className="btn btn-primary">View details</button></Link>
                             </div>
                         </div>
                     </div>)

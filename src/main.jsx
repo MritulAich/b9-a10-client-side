@@ -14,6 +14,7 @@ import AllTouristsSpot from './component/routes/AllTouristsSpot';
 import AddTouristsSpot from './component/routes/AddTouristsSpot';
 import MyList from './component/routes/MyList';
 import UpdatePage from './component/routes/UpdatePage';
+import ViewDetails from './component/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
       {
         path:'/addTouristsSpot',
         element: <AddTouristsSpot></AddTouristsSpot>
+      },
+      {
+        path: '/viewDetails/:id',
+        element: <ViewDetails></ViewDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/spot/${params.id}`)
       },
       {
         path:'/myList',
