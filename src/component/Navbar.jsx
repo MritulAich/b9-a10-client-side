@@ -3,7 +3,7 @@ import { AuthContext } from "./AuthProvider";
 import { useContext } from "react";
 
 const Navbar = () => {
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const navLinks = <>
     <li><NavLink to='/'>Home</NavLink></li>
@@ -18,6 +18,7 @@ const Navbar = () => {
       .catch(err => { console.log(err) })
   }
 
+
   return (
     <div className="navbar bg-base-100 my-4">
       <div className="navbar-start">
@@ -31,16 +32,24 @@ const Navbar = () => {
         </div>
         <a className="font-bold lg:text-3xl md:text-2xl text-xl">TripVoyage</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
           {navLinks}
         </ul>
       </div>
 
-      <div className="navbar-end lg:flex lg:flex-row md:flex-row flex-col gap-4">
-        <Link to='/register' className="btn btn-info">Register</Link>
-        <Link to='/login' className="btn btn-accent">Login</Link>
-        <button onClick={handleLogOut} className="btn btn-neutral">Log out</button>
+      <div className="ml-6 lg:ml-60 md:ml-10 mt-4">
+        {user ?
+          <><div className="tooltip" data-tip={user?.displayName}>
+            <img src={user?.photoURL}></img></div></>
+          :
+          <div>image not found</div>}
+      </div>
+
+      <div className="navbar-end lg:flex lg:flex-row md:flex-row flex-col gap-4 ml-5">
+        {user ? <button onClick={handleLogOut} className="btn btn-neutral">Log out</button> :
+          <><Link to='/register' className="btn btn-info">Register</Link>
+            <Link to='/login' className="btn btn-accent">Login</Link></>}
       </div>
     </div>
   );

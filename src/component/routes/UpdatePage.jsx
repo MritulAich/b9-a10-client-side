@@ -21,7 +21,7 @@ const UpdatePage = () => {
 
         const updatedPage = {photo, spot, country, location, description, cost, seasonality, time, visitors};
 
-        fetch(`http://localhost:5000/spot/${_id}`, {
+        fetch(`https://trip-voyage-server.vercel.app/spot/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -41,11 +41,14 @@ const UpdatePage = () => {
                 }
             })
     }
+
+
     return (
-        <div className="bg-green-200 p-20 items-center flex flex-col">
-            <p className="text-2xl mb-8">You can update your added spot here</p>
+        <div className="bg-green-200 p-20  flex flex-col">
+            <p className="text-xl lg:text-2xl mb-8">You can update your added spot here</p>
+            
             <form onSubmit={handleUpdatePage}>
-                <div className="flex flex-row gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="space-y-2">
                         <p>Tourists Spot Name</p>
                         <input type="text" name="spot" defaultValue={spot} className="input input-bordered" />
@@ -79,7 +82,7 @@ const UpdatePage = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <button className="btn btn-accent w-96 mt-6 text-lg">Update</button>
+                    <button className="btn btn-accent lg:w-96 md:w-96 w-52 mt-6 text-lg">Update</button>
                 </div>
             </form>
         </div>

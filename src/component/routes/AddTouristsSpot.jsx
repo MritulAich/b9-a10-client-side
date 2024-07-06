@@ -24,7 +24,7 @@ const AddTouristsSpot = () => {
         console.log(newSpot);
 
 
-        fetch('http://localhost:5000/spot', {
+        fetch('https://trip-voyage-server.vercel.app/spot', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -47,11 +47,11 @@ const AddTouristsSpot = () => {
 
 
     return (
-        <div className="bg-slate-200 p-16 items-center flex flex-col">
-            <p className="text-3xl mb-8">Add a <span className="text-violet-400">Tourists Spot</span></p>
+        <div className="bg-slate-200 p-16 lg:text-left md:text-left text-center flex flex-col">
+            <p className="lg:text-3xl text-2xl mb-8">Add a <span className="text-violet-400">Tourists Spot</span></p>
 
             <form onSubmit={handleAddSpot}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div className="space-y-2">
                         <p>Photo :</p>
@@ -91,7 +91,7 @@ const AddTouristsSpot = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <button className="btn btn-accent w-96 mt-6 text-lg">Add</button>
+                    <button className="btn btn-accent w-52 lg:w-96 md:w-96 mt-6 text-lg">Add</button>
                 </div>
             </form>
         </div>

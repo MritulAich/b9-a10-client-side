@@ -47,17 +47,17 @@ const router = createBrowserRouter([
       {
         path: '/viewDetails/:id',
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
+        loader: ({ params }) => fetch(`https://trip-voyage-server.vercel.app/spot/${params.id}`)
       },
       {
         path: '/myList',
         element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://trip-voyage-server.vercel.app/spot')
       },
       {
         path: '/updatePage/:id',
         element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/spot/${params.id}`)
+        loader: ({ params }) => fetch(`https://trip-voyage-server.vercel.app/spot/${params.id}`)
       },
 
     ]

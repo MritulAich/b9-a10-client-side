@@ -19,7 +19,7 @@ const MyList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/spot/${_id}`, {
+                fetch(`https://trip-voyage-server.vercel.app/spot/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -40,13 +40,10 @@ const MyList = () => {
     }
 
     return (
-        <div className='m-5 mt-10'>
-            <h1 className='text-6xl text-center'></h1>
-
-            <div>
+        <div className='lg:m-5 md:m-3 lg:mt-10 mt-6'>
                 <table className="table ">
                     <thead>
-                        <tr className="text-lg">
+                        <tr className="lg:text-lg md:text-lg">
                             <th>Spot Name</th>
                             <th>Country</th>
                             <th>Average Cost</th>
@@ -62,18 +59,19 @@ const MyList = () => {
                                 <th>{spot.spot}</th>
                                 <td>{spot.country}</td>
                                 <td>{spot.cost}</td>
-                                <td>
+                                <td className="space-y-1">
+                                <div>
                                     <Link to={`/updatePage/${spot._id}`}>
                                         <div className="btn btn-accent">Update</div>
                                     </Link>
+                                </div>
+                                <div onClick={() => handleDelete(spot._id)} className="btn btn-neutral">Delete</div>
                                 </td>
-                                <td><div onClick={() => handleDelete(spot._id)} className="btn btn-neutral">Delete</div></td>
                             </tr>
                         </tbody>)}
 
                 </table>
             </div>
-        </div>
     );
 };
 
