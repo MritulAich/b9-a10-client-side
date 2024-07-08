@@ -21,7 +21,7 @@ const TouristsSpots = () => {
                 {
                     spots.map(spot => <div key={spot._id} >
                         <div className="card w-96 bg-base-100 shadow-xl p-8 space-y-4">
-                            <figure className=""><img src={`${spot.photo}`} className="rounded-xl w-[352px] h-[213px]"/></figure>
+                            <figure><img src={`${spot.photo}`} className="rounded-xl w-[352px] h-[213px]"/></figure>
                             <h2 className="text-2xl font-semibold">{spot.spot}</h2>
                             <p className="text-lg">{spot.description.slice(0, 90)} ....more</p>
                             <p className="text-center text-lg font-semibold text-red-400">Average Cost: {spot.cost} BDT</p>

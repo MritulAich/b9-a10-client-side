@@ -17,6 +17,7 @@ import UpdatePage from './component/routes/UpdatePage';
 import ViewDetails from './component/ViewDetails';
 import AuthProvider from './component/AuthProvider';
 import PrivateRoute from './component/routes/PrivateRoute';
+import CountrySpot from './component/CountrySpot';
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
         loader: ({ params }) => fetch(`https://trip-voyage-server.vercel.app/spot/${params.id}`)
       },
-
+      {
+        path:'/countrySpot/:id',
+        element:<CountrySpot></CountrySpot>,
+        loader: ({ params }) => fetch(`http://localhost:5000/countries/${params.id}`)
+      }
     ]
   },
 

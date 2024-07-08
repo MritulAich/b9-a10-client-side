@@ -54,7 +54,7 @@ const UpdatePage = () => {
                         <input type="text" name="spot" defaultValue={spot} className="input input-bordered" />
 
                         <p>New photo</p>
-                        <input type="url" name="photo"  placeholder="type url" className="input input-bordered" />
+                        <input type="url" name="photo"  defaultValue={photo} className="input input-bordered" />
 
                         <p>Country</p>
                         <input type="text" name="country" defaultValue={country} className="input input-bordered" />
@@ -71,13 +71,13 @@ const UpdatePage = () => {
                     </div>
                     <div className="space-y-2">
                         <p>Cost</p>
-                        <input type="number" name="cost" className="input input-bordered" />
+                        <input type="number" name="cost" defaultValue={cost} className="input input-bordered" />
 
                         <p>Visitors</p>
                         <input type="text" name="visitors" defaultValue={visitors} className="input input-bordered" />
 
                         <p>Description</p>
-                        <input type="text" name="description" className="input input-bordered" />
+                        <input type="text" name="description" defaultValue={description} className="input input-bordered" />
                     </div>
                 </div>
 
