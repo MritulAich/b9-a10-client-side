@@ -1,3 +1,4 @@
+import Countries from "./component/Countries";
 import Slider from "./component/Slider";
 import TouristsSpots from "./component/TouristsSpots";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <TouristsSpots></TouristsSpots>
+            <Countries></Countries>
         </div>
     );
 };

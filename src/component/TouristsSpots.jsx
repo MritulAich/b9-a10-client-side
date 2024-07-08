@@ -14,14 +14,14 @@ const TouristsSpots = () => {
     return (
         <div>
             <div className="flex flex-row justify-around mt-20 mb-8">
-                <h2 className="lg:text-3xl md:text-2xl text-2xl">Tourists Spots Section</h2>
+                <h2 className="lg:text-3xl md:text-2xl text-2xl font-medium underline">Tourists Spots Section</h2>
             </div>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
                 {
                     spots.map(spot => <div key={spot._id} >
                         <div className="card w-96 bg-base-100 shadow-xl p-8 space-y-4">
-                            <figure className=""><img src={`${spot.photo}`} className="rounded-xl"/></figure>
+                            <figure className=""><img src={`${spot.photo}`} className="rounded-xl w-[352px] h-[213px]"/></figure>
                             <h2 className="text-2xl font-semibold">{spot.spot}</h2>
                             <p className="text-lg">{spot.description.slice(0, 90)} ....more</p>
                             <p className="text-center text-lg font-semibold text-red-400">Average Cost: {spot.cost} BDT</p>
