@@ -26,6 +26,7 @@ const Navbar = () => {
     <li><NavLink to='/allTouristsSpot'>All Tourists Spot</NavLink></li>
     <li><NavLink to='/addTouristsSpot'>Add Tourists Spot</NavLink></li>
     <li><NavLink to='/myList'>My List</NavLink></li>
+    <li><NavLink to='/weather'>Weather Widget</NavLink></li>
   </>
 
   const handleLogOut = () => {
@@ -57,7 +58,7 @@ const Navbar = () => {
 
       </div>
       <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-lg">
           {navLinks}
         </ul>
       </div>

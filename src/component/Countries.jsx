@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Countries = () => {
     const [countries, setCountry] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/countries')
+        fetch('https://trip-voyage-server.vercel.app/countries')
             .then(res => res.json())
             .then(data => setCountry(data))
     }, []);
